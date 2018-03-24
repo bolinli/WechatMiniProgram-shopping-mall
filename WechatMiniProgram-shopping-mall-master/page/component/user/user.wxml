@@ -1,0 +1,34 @@
+<view class="main">
+    <view class="header">
+        <image src="{{thumb}}" class="thumb"></image>
+        <text class="nickname">{{nickname}}</text>
+        <text class="about">关于我们</text>
+    </view>
+    <view class="address-box">
+        <view class="address-manage">
+            <navigator url="/page/component/address/address">地址管理</navigator>
+        </view>
+        <view wx:if="{{hasAddress}}" class="address-list">
+            <view>{{address.name}}</view>
+            <view>{{address.depart}}</view>
+        </view>
+    </view>
+    <view class="orders-box">
+        <view class="orders">预订清单</view>
+        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+            <view class="orders-number">预订编号：{{item.orderId}}}</view>
+            <view class="orders-detail">
+                <image src="{{item.goodMainUrl}}"></image>
+                <!-- <view class="googMainUrl">{{item.goodMainUrl}}</view> -->
+                <view class="goodName">{{item.goodName}}</view>
+                <view class="">{{item.goodNum}}</view>
+                <text class="orders-status">{{item.status}}</text>
+            </view>
+
+              <!-- <text>实付：￥{{item.goodPrice}}</text> -->
+               <view class="orders-footer-btn orders-footer"  data-id="{{item.orderId}}" data-name="{{item.goodName}}" data-people="{{address.name}}" data-depart="{{address.depart}}" bindtap="payOrders">
+               <button size="mini" class="orders-btn">退订</button>
+               </view>
+        </view>
+    </view>
+</view>
