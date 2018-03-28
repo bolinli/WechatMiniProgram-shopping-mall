@@ -1,0 +1,2 @@
+/**index.wxss**/
+@import '../common/image_uploader/image_uploader.wxss';
