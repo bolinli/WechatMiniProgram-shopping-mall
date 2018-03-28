@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.orderMapper">
+
+	<select id="getAll" resultType="org.order.po.Order" parameterType="String">
+		select * from `orders` WHERE nickName = #{nickName}
+	</select>
+	<insert id="insert">
+		insert into `orders`(good_name,good_price,good_main_url,good_num,name,depart) values (#{goodName},#{goodPrice},#{goodMainUrl},#{goodNum},#{name},#{depart})
+	</insert>
+	<delete id="deleteById" parameterType="Integer">
+		delete from orders where order_id=#{id}
+	</delete>
+	<delete id="deleteAll">
+		delete from `orders`
+	</delete>
+</mapper>
